@@ -1,0 +1,10 @@
+asn1crypto==0.24.0
+certifi==2018.11.29
+cffi==1.12.2
+cryptography==2.6.1
+future==0.17.1
+pkg-resources==0.0.0
+pycparser==2.19
+python-telegram-bot==11.1.0
+six==1.12.0
+telegram==0.0.1
