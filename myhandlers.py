@@ -17,12 +17,13 @@ class NewUserJoinHandler:
             new_users_name += new_chat_member.last_name if new_chat_member.last_name else ''
             new_users_name = new_users_name.replace(' ', '')
             if cv.NOT_ALLOWED in new_users_name:
-                bot.delete_message(self.chat.id,self.update.message.message_id)
-                self.bot.restrict_chat_member(chat_id=self.chat_id, user_id=new_chat_member.id,
+                try:
+                    self.bot.delete_message(self.chat_id, self.update.message.message_id)
+                    self.bot.restrict_chat_member(chat_id=self.chat_id, user_id=new_chat_member.id,
                         can_send_messages=False,
                         can_send_media_messages=False,
                         can_send_other_messages=False,
                         can_add_web_page_previews=False)
                 except telegram.error.BadRequest:
                     self.bot.send_message(self.update.message.chat_id,
-                        'But I am not an admin :/')
+                        'I am not an admin :/')
